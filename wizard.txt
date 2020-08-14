@@ -1,0 +1,20 @@
+或在命令行上创建新存储库
+…or create a new repository on the command line
+
+echo "# test" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/zpqwe/test.git
+git push -u origin master
+                
+或在命令行上创建新存储库
+…or push an existing repository from the command line
+
+git remote add origin https://github.com/zpqwe/test.git
+git push -u origin master
+或从其它存储库导入代码
+…or import code from another repository
+
+You can initialize this repository with code from a Subversion, Mercurial, or TFS project.
+
