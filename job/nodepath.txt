@@ -1,0 +1,9 @@
+# 播放数 用户数量
+SELECT LEFT(create_time,10),COUNT(id)'PV',COUNT(DISTINCT user_id) 'UV' FROM `t_mika_visitlog` WHERE create_time BETWEEN '2020-07-31' AND '2020-08-04'
+GROUP BY LEFT(create_time,10)
+#订购  
+ SELECT LEFT(DATE_FORMAT(ser_start_time,'%Y-%m-%d'),10),COUNT(DISTINCT user_id)FROM t_mika_orderlog WHERE DATE_FORMAT(ser_start_time,'%Y-%m-%d') BETWEEN '2020-07-31' AND '2020-08-03' AND result=0 GROUP BY LEFT(DATE_FORMAT(ser_start_time,'%Y-%m-%d'),10)
+ # 订购失败
+  SELECT LEFT(DATE_FORMAT(ser_start_time,'%Y-%m-%d'),10),COUNT(DISTINCT user_id)FROM t_mika_orderlog WHERE DATE_FORMAT(ser_start_time,'%Y-%m-%d') BETWEEN '2020-07-31' AND '2020-08-03' AND result!=0 GROUP BY LEFT(DATE_FORMAT(ser_start_time,'%Y-%m-%d'),10)
+ # 播放次数，播放用户数
+ SELECT LEFT(play_time,10),COUNT(id) '播放次数',COUNT(DISTINCT user_id) '播放用户数' FROM t_mika_later_play WHERE play_time BETWEEN '2020-07-31' AND '2020-08-03' GROUP BY LEFT(play_time,10)
